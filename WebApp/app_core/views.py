@@ -2,6 +2,7 @@ from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views.generic.edit import BaseCreateView
+from django.views.generic import DetailView
 
 from .forms import *
 from .models import *
@@ -32,6 +33,10 @@ def index(request):
     context['bins'] = bins
     return render(request, 'index.html', context)
 
+
+def BinDetailView(request):
+    model = Bin
+    template_name = 'binInfo.html'
 
 def create_bin(request):
     context = dict()

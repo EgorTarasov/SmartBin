@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
     path('login/', user_login, name='login'),
-    path('bin/create/', create_bin, name='create_bin' )
+    path('bin/create/', create_bin, name='create_bin'),
 ]
 
 if settings.DEBUG:

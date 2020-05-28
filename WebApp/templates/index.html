@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="card-body text">
+        <h4 class="card-title" style="text-align: center; color: #ffb300">
+            Список подключенных устройств
+        </h4>
+        {% for each in bins %}
+            <div class="card bin" style="width: 18rem;display:inline-block" >
+              <div class="card-body">
+                <h3 class="card-title address">{{ each.name }}</h3>
+                <p class="card-text ">{{ each.ip_address }}</p>
+                  <p class="card-text data" style="color:lightgreen">Заполнено : {{each.filled_data}} / 100 %</p>
+                  <a href="{{ each.id }}" class="btn btn-primary">Отсчет</a>
 
-</body>
-</html>
+              </div>
+            </div>
+    {% endfor %}
+    </div>
+{% endblock content %}
