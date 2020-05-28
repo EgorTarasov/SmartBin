@@ -24,6 +24,7 @@ urlpatterns = [
     path('', index, name='index'),
     path('login/', user_login, name='login'),
     path('bin/create/', create_bin, name='create_bin'),
+    path('<int:bin_id>/update/<int:data>', update_bin, name='update'),
 ]
 
 if settings.DEBUG:

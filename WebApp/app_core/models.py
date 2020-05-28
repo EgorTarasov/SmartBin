@@ -28,3 +28,8 @@ class Bin(models.Model):
         else:
             self.ip_address = '192.168.0.1'
             self.save()
+
+    def update_data(self, data):
+        #TODO: Проверить что работает
+        self.filled_data = data
+        self.save()

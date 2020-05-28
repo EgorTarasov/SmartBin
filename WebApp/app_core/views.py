@@ -1,8 +1,7 @@
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic.edit import BaseCreateView
-from django.views.generic import DetailView
 
 from .forms import *
 from .models import *
@@ -34,9 +33,17 @@ def index(request):
     return render(request, 'index.html', context)
 
 
+def update_bin(request, bin_id, data):
+    bin = get_object_or_404(Bin, id=bin_id)
+    bin.update_data(data)
+    bin.save
+    return redirect('index')
+
+
 def BinDetailView(request):
     model = Bin
     template_name = 'binInfo.html'
+
 
 def create_bin(request):
     context = dict()
